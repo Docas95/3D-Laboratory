@@ -1,0 +1,195 @@
+/* Base styles */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Funnel Sans", monospace;
+    overflow-x: hidden;
+    cursor: url('https://img.icons8.com/?size=24&id=3149&format=png'), auto;;
+}
+
+/* Header section */
+#header-div {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header-c {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#header-h1 {
+    margin-top: 30vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+}
+
+/* Main content section */
+#main-content-div {
+    width: 100%;
+}
+
+#main-content-subtitle {
+    border-top: 5px black solid;
+    border-bottom: 5px black solid;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#main-content-subtitle h2 {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+/* Typography classes */
+.white-text {
+    color: white;
+}
+
+.black-background {
+    background-color: black;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-title {
+    font-size: 72px;
+}
+
+.text-subtitle {
+    font-size: 40px;
+}
+
+.text-paragraph {
+    font-size: 20px;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-align-end {
+    text-align: end;
+}
+
+/* Layout utilities */
+.margin-top-50 {
+    margin-top: 100px;
+}
+
+.margin-right-20 {
+    margin-right: 20px;
+}
+
+.margin-left-20 {
+    margin-left: 20px;
+}
+
+.z-index-2 {
+    z-index: 2;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.height-50 {
+    height: 50%;
+}
+
+.height-100 {
+    height: 100vh;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.align-content-center {
+    align-content: center;
+}
+
+/* Border and color styles */
+.gradient-text {
+    background: linear-gradient(to bottom, #ff4b4b, #4169e1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.red-text {
+    color: #ff4b4b;
+}
+
+.blue-text {
+    color: #4169e1;
+}
+
+.black-border-top-bottom {
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+}
+
+/* Interactive word hover effect */
+.word {
+    color: black;
+    background-color: white;
+}
+
+.word:hover {
+    color: white;
+    background-color: black;
+}
+
+/* Animations */
+.slide-left-infinite {
+    animation: slide-left-infinite 15s infinite linear;
+}
+
+@keyframes slide-left-infinite {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Animation visibility control added from JS */
+.animation {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animation.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-in-left {
+    transform: translateX(-50px);
+}
+
+.slide-in-left.visible {
+    transform: translateX(0);
+}
+
+.slide-in-right {
+    transform: translateX(50px);
+}
+
+.slide-in-right.visible {
+    transform: translateX(0);
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robins's 3D Adventures</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="header-div">
+        <canvas id="header-c"></canvas>
+        <h1 id="header-h1" class="slide-down white-text black-background text-center text-title z-index-2">Hello, World!</h1>
+    </div> 
+
+    <div id="main-content-div">
+        <div id="main-content-subtitle">
+            <h2 class="slide-left-infinite text-subtitle">
+                Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory|
+                
+                Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory|
+            </h2>
+        </div>
+
+        <section class="height-100 align-content-center">
+            <div class="black-background animation slide-in-left">
+                <h2 id="about-me-subtitle" class="text-subtitle white-text margin-left-20">Who am I?</h2>
+            </div>
+            
+            <div class="display-flex text-justify animation slide-in-left black-border-top-bottom">
+                <div class="width-50">
+                    <p class="text-paragraph margin-right-20 margin-left-20 words-highlight">My name is Robin and I'm 20 years old. I'm a third year software eng. student and I'm also interning as a software developer at [REALLY COOL COMPANY]. I'm really into graphics programming and anything 3D.</p>
+                    
+                    <p class="text-paragraph margin-right-20 margin-left-20 words-highlight">I'm really good at coming up with cool project ideas but not so good at finishing said projects. I would consider myself to be a pretty average programmer right now, but I'm always trying to improve my skills.
+                    </p>
+                    
+                    <p class="text-paragraph margin-right-20 margin-left-20 words-highlight">If I ever stop procrastinating I just might take over the world.
+                    </p>
+                </div>
+                <canvas id="about-me-c" class="width-50"></canvas>
+            </div>
+        </section>
+        
+        <section class="height-100 align-content-center">
+            <div class="black-background text-align-end animation slide-in-right">
+                <h2 id="what-is-this-subtitle" class="text-subtitle white-text margin-right-20">What is this?</h2>
+            </div>
+
+            <div class="display-flex text-justify animation slide-in-right black-border-top-bottom">
+                <canvas id="what-is-this-c" class="width-50"></canvas>
+                <div class="width-50">
+                    <p class="text-paragraph margin-right-20 margin-left-20 words-highlight">You can think of this website as an archive of all of all of my web 3D projects.</p>
+                    
+                    <p class="text-paragraph margin-right-20 margin-left-20 words-highlight">The biggest advantage of web based graphics frameworks over the more traditional ones (DirectX, Vulkan, Metal) is that your projects can easily be shared to any device. With that in mind, I thought it'd make sense to create a website to share my 3D programs with others more easily.</p>
+                    
+                    <p class="text-paragraph margin-right-20 margin-left-20 words-highlight">Every project here is open source. The source code for this website and all projects inside it can be found on my Github.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <br>
+    </footer>
+
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@v0.174.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.174.0/examples/jsm/"
+          }
+        }
+    </script>
+    <script type="module" src="main-page.js"></script>
+  </body>
+</html>
