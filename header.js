@@ -4,7 +4,6 @@ import * as THREE from 'three';
  * Initialize everything when the page loads
  */
 document.addEventListener('DOMContentLoaded', () => {
-    setupScrollAnimations();
     initMainScene();
     setupHeaderAnimations();
 });
@@ -29,32 +28,6 @@ function setupHeaderAnimations() {
 }
 
 /**
- * Reveal elements as they scroll into view
- */
-function setupScrollAnimations() {
-    const sections = document.querySelectorAll('.animation');
-    
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.75 &&
-            rect.bottom >= 0
-        );
-    }
-    
-    function checkScroll() {
-        sections.forEach(section => {
-            if (isElementInViewport(section)) {
-                section.classList.add('visible');
-            }
-        });
-    }
-    
-    checkScroll(); // Check initial positions
-    window.addEventListener('scroll', checkScroll);
-}
-
-/**
  * Initialize the main 3D scene for the header
  */
 function initMainScene() {
@@ -64,18 +37,32 @@ function initMainScene() {
     
     const canvas = document.getElementById('header-c');
     const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    
+    // Set initial size
+    updateSize();
     
     const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
     camera.position.z = 10;
     
-    // Handle window resize
-    window.addEventListener('resize', () => {
+    // Improved resize handler
+    function updateSize() {
         const width = canvas.clientWidth;
         const height = canvas.clientHeight;
-        renderer.setSize(width, height);
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
+        const needResize = canvas.width !== width || canvas.height !== height;
+        
+        if (needResize) {
+            renderer.setSize(width, height, false);
+        }
+        
+        return needResize;
+    }
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        if (updateSize()) {
+            camera.aspect = canvas.clientWidth / canvas.clientHeight;
+            camera.updateProjectionMatrix();
+        }
     });
     
     // Lighting
@@ -85,6 +72,13 @@ function initMainScene() {
     
     // Create gradient icosahedron with wireframe
     const icosahedron = createGradientIcosahedron();
+    
+    // Adjust size based on screen
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+        icosahedron.scale.set(0.7, 0.7, 0.7);
+    }
+    
     scene.add(icosahedron);
     
     // Background gradient
@@ -95,6 +89,9 @@ function initMainScene() {
     // Animation loop
     function animate() {
         requestAnimationFrame(animate);
+        
+        // Check if resize needed on each frame
+        updateSize();
         
         icosahedron.rotateX(0.006);
         icosahedron.rotateY(-0.004);

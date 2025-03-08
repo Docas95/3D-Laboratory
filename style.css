@@ -3,23 +3,24 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    height: 100vh; /* Ensure it takes exactly 100% viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-family: "Funnel Sans", monospace;
-    overflow-x: hidden;
+    overflow: hidden; /* Prevent scrollbars completely */
     cursor: url('https://img.icons8.com/?size=24&id=3149&format=png'), auto;
 }
 
 /* Header section */
 #header-div {
-    height: 90vh;
+    height: 90vh; /* Changed from 90vh to 100vh */
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px
+    gap: 20px;
 }
 
 .mini-header {
@@ -40,6 +41,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 90%; /* Add width to prevent overflow */
+    text-align: center;
 }
 
 #projects-title, #back-link {
@@ -102,7 +105,8 @@ body {
 
 .project {
     display: none;
-    width: 50%; 
+    width: 80%; /* Changed from 50% to be more responsive */
+    max-width: 800px; /* Add max-width for larger screens */
     margin: 0 auto;
     background-color: black;
     overflow: hidden;
@@ -117,6 +121,7 @@ body {
 .project img {
     width: 100%;
     display: block;
+    height: 40vh;
     max-height: 40vh;
     object-fit: cover;
 }
@@ -236,7 +241,6 @@ body {
 }
 
 /* Layout utilities */
-
 .z-index-2 {
     z-index: 2;
 }
@@ -283,5 +287,45 @@ body {
     }
 }
 
-/* Animation visibility control added from JS */
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .text-title {
+        font-size: 42px;
+    }
+    
+    .text-subtitle {
+        font-size: 24px;
+    }
+    
+    .project {
+        width: 90%;
+    }
+    
+    .project-info h3 {
+        font-size: 20px;
+    }
+    
+    .project-info p {
+        font-size: 14px;
+    }
+}
 
+@media (max-width: 480px) {
+    .text-title {
+        font-size: 32px;
+    }
+    
+    .text-subtitle {
+        font-size: 18px;
+    }
+    
+    .project-tag {
+        font-size: 12px;
+        padding: 3px 6px;
+    }
+    
+    .prev, .next {
+        padding: 10px;
+        font-size: 16px;
+    }
+}
