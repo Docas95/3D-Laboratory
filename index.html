@@ -12,115 +12,21 @@
   <body>
     <div id="header-div">
         <canvas id="header-c"></canvas>
-        <h1 id="header-h1" class="slide-down white-text black-background text-center text-title z-index-2">Hello, World!</h1>
-    </div> 
-
+        <div id="header-text">
+            <h1 id="header-h1" class="white-text black-background text-center text-title z-index-2">Hello, World!</h1>
+            <h2 id="header-h2" class="white-text black-background text-center text-subtitle z-index-2"><a href="projects.html" class="header-link">[Projects]</a></h2>
+            <h2 id="header-h3" class="white-text black-background text-center text-subtitle z-index-2"><a href="https://x.com/RobinsSecret" class="header-link">[X/Twitter]</a></h2>
+        </div>
+    </div>
     <div id="main-content-div">
         <div id="main-content-subtitle">
             <h2 class="slide-left-infinite text-subtitle">
-                Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory|
+                Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory |
                 
-                Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory|
+                Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory |
             </h2>
         </div>
-
-        <section class="height-100 align-content-center">
-            <div class="black-background animation slide-in-left">
-                <h2 class="text-subtitle white-text margin-left-20">Who am I?</h2>
-            </div>
-            
-            <div class="display-flex text-justify animation slide-in-left black-border-top-bottom">
-                <div class="width-50">
-                    <p class="text-paragraph margin-right-20 margin-left-20 words-highlight">My name is Robin and I'm 20 years old. I'm a third year software eng. student and I'm also interning as a software developer at [REALLY COOL COMPANY]. I'm really into graphics programming and anything 3D.</p>
-                    
-                    <p class="text-paragraph margin-right-20 margin-left-20 words-highlight">I'm really good at coming up with cool project ideas but not so good at finishing said projects. I would consider myself to be a pretty average programmer right now, but I'm always trying to improve my skills.
-                    </p>
-                    
-                    <p class="text-paragraph margin-right-20 margin-left-20 words-highlight">If I ever stop procrastinating I just might take over the world.
-                    </p>
-                </div>
-                <canvas id="about-me-c" class="width-50"></canvas>
-            </div>
-        </section>
-        
-        <section class="height-100 align-content-center">
-            <div class="black-background text-align-end animation slide-in-right">
-                <h2 class="text-subtitle white-text margin-right-20">What is this?</h2>
-            </div>
-
-            <div class="display-flex text-justify animation slide-in-right black-border-top-bottom">
-                <canvas id="what-is-this-c" class="width-50"></canvas>
-                <div class="width-50">
-                    <p class="text-paragraph margin-right-20 margin-left-20 words-highlight">You can think of this website as an archive of all of all of my web 3D projects.</p>
-                    
-                    <p class="text-paragraph margin-right-20 margin-left-20 words-highlight">The biggest advantage of web based graphics frameworks over the more traditional ones (DirectX, Vulkan, Metal) is that your projects can easily be shared to any device. With that in mind, I thought it'd make sense to create a website to share my 3D programs with others more easily.</p>
-                    
-                    <p class="text-paragraph margin-right-20 margin-left-20 words-highlight">Every project here is open source. The source code for this website and all projects inside it can be found on my Github.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="align-content-center">
-            <div id="projects-subtitle">
-                <h2 class="slide-left-infinite text-subtitle">
-                    Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects |
-            
-                    Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects |
-                </h2>
-            </div>
-            <div id="projects-listing">
-                <div class="project fade">
-                    <img src="/thumbnail.jpg" alt="Project 1">
-                    <div class="project-info">
-                        <h3>3D Terrain Generator</h3>
-                        <p>A procedural terrain generator built with Three.js that creates realistic landscapes with customizable parameters.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Three.js</span>
-                            <span class="project-tag">WebGL</span>
-                            <span class="project-tag">Procedural</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project fade">
-                    <img src="/thumbnail.jpg" alt="Project 2">
-                    <div class="project-info">
-                        <h3>Particle Physics Simulator</h3>
-                        <p> procedural terrain generator built with Three.js that creates realistic landscapes with customizable parameters.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">GLSL</span>
-                            <span class="project-tag">Physics</span>
-                            <span class="project-tag">Interactive</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project fade">
-                    <img src="/thumbnail.jpg" alt="Project 3">
-                    <div class="project-info">
-                        <h3>Real-time Shadow Study</h3>
-                        <p>An exploration of different shadow mapping techniques and their performance implications in web 3D.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Lighting</span>
-                            <span class="project-tag">Performance</span>
-                            <span class="project-tag">WebGPU</span>
-                        </div>
-                    </div>
-                </div>
-        
-                <a class="prev">&#10094;</a>
-                <a class="next">&#10095;</a>
-            </div>
-        
-            <div class="dots-container">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-        </section>
     </div>
-
     <script type="importmap">
         {
           "imports": {
@@ -129,6 +35,6 @@
           }
         }
     </script>
-    <script type="module" src="main-page.js"></script>
+    <script type="module" src="header.js"></script>
   </body>
 </html>

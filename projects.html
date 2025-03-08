@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robin's 3D Projects</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <section class="align-content-center">
+        <div id="projects-subtitle">
+            <h2 class="slide-right-infinite text-subtitle white-text black-background">
+                Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects |
+        
+                Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects |
+            </h2>
+        </div>
+        <div id="projects-listing">
+                <div class="project fade">
+                    <a href="#" class="project-link">
+                    <img src="assets/thumbnail.jpg" alt="Project 1">
+                    <div class="project-info">
+                        <h3>3D Audio Visualizer</h3>
+                        <p>A procedural terrain generator built with Three.js that creates realistic landscapes with customizable parameters.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Three.js</span>
+                            <span class="project-tag">Audio</span>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+        </div>
+    
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
+        </div>
+    
+        <div class="dots-container">
+            <span class="dot"></span>
+        </div>
+    </section>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@v0.174.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.174.0/examples/jsm/"
+          }
+        }
+    </script>
+    <script type="module" src="projects.js"></script>
+  </body>
+</html>

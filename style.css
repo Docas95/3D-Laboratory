@@ -1,6 +1,7 @@
 /* Base styles */
 body {
     margin: 0;
+    padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -15,8 +16,14 @@ body {
     height: 90vh;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px
+}
+
+.mini-header {
+    height: 40vh;
 }
 
 #header-c {
@@ -25,11 +32,29 @@ body {
     height: 100%;
 }
 
-#header-h1 {
-    margin-top: 30vh;
-    padding-left: 10px;
-    padding-right: 10px;
+#header-text {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#projects-title, #back-link {
+    position: relative;
+    margin: 20px 0;
+}
+
+.header-link {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.header-link:hover {
+    text-decoration: underline;
 }
 
 /* Main content section */
@@ -51,7 +76,7 @@ body {
 }
 
 /* Projects section */
-#projects-subtitle{
+#projects-subtitle {
     border-top: 5px black solid;
     border-bottom: 5px black solid;
     overflow: hidden;
@@ -64,7 +89,7 @@ body {
     display: inline-block;
 }
 
-#projects-listing{
+#projects-listing {
     width: 100%;
     position: relative;
     margin: 60px auto 30px auto;
@@ -75,7 +100,7 @@ body {
     border-bottom: black solid 5px;
 }
 
-.project{
+.project {
     display: none;
     width: 50%; 
     margin: 0 auto;
@@ -89,7 +114,7 @@ body {
     transform: scale(1.02);
 }
 
-.project img{
+.project img {
     width: 100%;
     display: block;
     max-height: 40vh;
@@ -110,6 +135,15 @@ body {
 .project-info p {
     margin-bottom: 10px;
     font-size: 16px;
+}
+
+.project-link {
+    text-decoration: none;
+    color: inherit; /* Ensures text color matches project content (white) */
+}
+
+.project-link:hover {
+    text-decoration: none; /* Prevents underline on the entire project div */
 }
 
 .project-tags {
@@ -201,90 +235,25 @@ body {
     font-size: 40px;
 }
 
-.text-paragraph {
-    font-size: 20px;
-}
-
-.text-justify {
-    text-align: justify;
-}
-
-.text-align-end {
-    text-align: end;
-}
-
 /* Layout utilities */
-.margin-top-50 {
-    margin-top: 100px;
-}
-
-.margin-right-20 {
-    margin-right: 20px;
-}
-
-.margin-left-20 {
-    margin-left: 20px;
-}
 
 .z-index-2 {
     z-index: 2;
 }
 
-.width-50 {
-    width: 50%;
-}
-
-.height-50 {
-    height: 50%;
-}
-
-.height-100 {
-    height: 100vh;
-}
-
-.display-flex {
-    display: flex;
-}
-
-.align-content-center {
-    align-content: center;
-}
-
 /* Border and color styles */
-.gradient-text {
-    background: linear-gradient(to bottom, #ff4b4b, #4169e1);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.red-text {
-    color: #ff4b4b;
-}
-
-.blue-text {
-    color: #4169e1;
-}
-
 .black-border-top-bottom {
     border-top: 4px solid black;
     border-bottom: 4px solid black;
 }
 
-/* Interactive word hover effect */
-.word {
-    color: black;
-    background-color: white;
-}
-
-.word:hover {
-    color: white;
-    background-color: black;
-}
-
 /* Animations */
 .slide-left-infinite {
     animation: slide-left-infinite 15s infinite linear;
+}
+
+.slide-right-infinite {
+    animation: slide-left-infinite 15s infinite linear reverse; /* Reverses the left animation to slide right */
 }
 
 @keyframes slide-left-infinite {
@@ -296,30 +265,23 @@ body {
     }
 }
 
-/* Animation visibility control added from JS */
-.animation {
+/* Animation for falling header elements */
+.fall-animation {
+    animation: fall-down 1s ease forwards;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(-50px);
 }
 
-.animation.visible {
-    opacity: 1;
-    transform: translateY(0);
+@keyframes fall-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.slide-in-left {
-    transform: translateX(-50px);
-}
+/* Animation visibility control added from JS */
 
-.slide-in-left.visible {
-    transform: translateX(0);
-}
-
-.slide-in-right {
-    transform: translateX(50px);
-}
-
-.slide-in-right.visible {
-    transform: translateX(0);
-}
