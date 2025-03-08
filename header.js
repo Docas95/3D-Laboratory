@@ -81,11 +81,6 @@ function initMainScene() {
     
     scene.add(icosahedron);
     
-    // Background gradient
-    const plane = createGradientBackground();
-    plane.position.z = -100;
-    scene.add(plane);
-    
     // Animation loop
     function animate() {
         requestAnimationFrame(animate);
@@ -155,45 +150,4 @@ function createGradientIcosahedron() {
     mesh.rotateY(0.2);
     
     return mesh;
-}
-
-/**
- * Create gradient background for the scene
- * @returns {THREE.Mesh} The background plane
- */
-function createGradientBackground() {
-    const vertexShader = `
-        varying vec2 vUv;
-        void main(){
-            vUv = uv;
-            gl_Position = vec4(position, 1.0);   
-        }
-    `;
-    
-    const fragmentShader = `
-        uniform vec3 color1;
-        uniform vec3 color2;
-        uniform float extra;
-        varying vec2 vUv;
-        void main(){
-            gl_FragColor = vec4(mix(color1, color2, vUv.y + extra), 1.0);
-        }
-    `;
-    
-    const material = new THREE.ShaderMaterial({
-        vertexShader,
-        fragmentShader,
-        uniforms: {
-            color1: {value: new THREE.Color(0xFFFFFF)},
-            color2: {value: new THREE.Color(0x000000)},
-            extra: {value: -0.8}
-        },
-        depthTest: false,
-    });
-    
-    const geometry = new THREE.PlaneGeometry(2.0, 2.0);
-    const plane = new THREE.Mesh(geometry, material);
-    plane.renderOrder = -1;
-    
-    return plane;
 }

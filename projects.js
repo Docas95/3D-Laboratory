@@ -25,31 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-/**
- * Reveal elements as they scroll into view
- */
-function setupScrollAnimations() {
-    const sections = document.querySelectorAll('.animation');
-    
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.75 &&
-            rect.bottom >= 0
-        );
-    }
-    
-    function checkScroll() {
-        sections.forEach(section => {
-            if (isElementInViewport(section)) {
-                section.classList.add('visible');
-            }
-        });
-    }
-    
-    checkScroll(); // Check initial positions
-    window.addEventListener('scroll', checkScroll);
-}
 
 /**
  * Current project index
