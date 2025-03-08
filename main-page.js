@@ -8,6 +8,25 @@ document.addEventListener('DOMContentLoaded', () => {
     initMainScene();
     initAboutScene();
     initWhatIsThisScene();
+    projectsListingInit();
+
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    const dots = document.querySelectorAll('.dot');
+
+    prevButton.addEventListener('click', () => {
+        plusProject(-1);
+    });
+
+    nextButton.addEventListener('click', () => {
+        plusProject(1);
+    });
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentProject(index + 1);
+        });
+    });
 });
 
 
@@ -481,4 +500,57 @@ function setupModelInteractions(canvas, camera, model, mixer, actions, activeAct
             });
         }
     });
+}
+
+// *** PROJECTS LISTING ** //
+
+let projectIndex;
+
+function plusProject(n) {
+    showProjects(projectIndex += n);
+}
+  
+function currentProject(n) {
+    showProjects(projectIndex = n);
+}
+
+function projectsListingInit(){
+    projectIndex = 1;
+    showProjects(projectIndex);
+    
+    // Add hover effects for project cards
+    const projects = document.getElementsByClassName("project");
+    for(let i = 0; i < projects.length; i++) {
+        projects[i].addEventListener('mouseleave', function() {
+            this.style.boxShadow = 'none';
+        });
+    }
+}
+  
+function showProjects(n){
+    let i;
+    let projects = document.getElementsByClassName("project");
+    let dots = document.getElementsByClassName("dot");
+
+    console.log(projects);
+    console.log("Showing project:", n);
+
+    if(n > projects.length){
+        projectIndex = 1;
+    }
+
+    if(n < 1){
+        projectIndex = projects.length;
+    }
+
+    for(i = 0; i < projects.length; i++){
+        projects[i].style.display = "none";
+    }
+    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    projects[projectIndex-1].style.display = "block";
+    dots[projectIndex-1].className += " active";
 }

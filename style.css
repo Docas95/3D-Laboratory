@@ -7,7 +7,7 @@ body {
     justify-content: center;
     font-family: "Funnel Sans", monospace;
     overflow-x: hidden;
-    cursor: url('https://img.icons8.com/?size=24&id=3149&format=png'), auto;;
+    cursor: url('https://img.icons8.com/?size=24&id=3149&format=png'), auto;
 }
 
 /* Header section */
@@ -48,6 +48,136 @@ body {
     padding: 0;
     margin: 0;
     display: inline-block;
+}
+
+/* Projects section */
+#projects-subtitle{
+    border-top: 5px black solid;
+    border-bottom: 5px black solid;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#projects-subtitle h2 {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+#projects-listing{
+    width: 100%;
+    position: relative;
+    margin: 60px auto 30px auto;
+    background-color: white;
+    padding: 30px 0; 
+    max-height: 80vh;
+    border-top: black solid 5px;
+    border-bottom: black solid 5px;
+}
+
+.project{
+    display: none;
+    width: 50%; 
+    margin: 0 auto;
+    background-color: black;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    max-height: 70vh; 
+}
+
+.project:hover {
+    transform: scale(1.02);
+}
+
+.project img{
+    width: 100%;
+    display: block;
+    max-height: 40vh;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 15px;
+    color: white;
+}
+
+.project-info h3 {
+    margin-top: 0;
+    font-size: 24px;
+    color: white; 
+}
+
+.project-info p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.project-tag {
+    background-color: #333;
+    color: white;
+    padding: 4px 8px;
+    font-size: 14px;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+}
+  
+.prev:hover, .next:hover {
+    background-color: white;
+    color: black;
+}
+
+.dots-container {
+    text-align: center;
+    padding: 15px 0;
+    background-color: black;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px; 
+    width: 12px;
+    margin: 0 8px;
+    background-color: #555; 
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+.active, .dot:hover {
+    background-color: white; 
+}
+  
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
 }
 
 /* Typography classes */
