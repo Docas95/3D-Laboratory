@@ -1,70 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robin's 3D Projects</title>
-    <link href="projectsstyle.css" rel="stylesheet" type="text/css" media="all">
+    <title>Robin's 3D Lab</title>
+    <link rel="stylesheet" href="projectsstyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div class="content-wrapper">
-      <div class="spinning-header-container top-header">
-        <h2 class="spinning-header">
-            Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | 
-            Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects |
-        </h2>
-      </div>
-      
-      <div class="carousel-container">
-        <div class="carousel">
-          <div class="carousel-item active">
-            <a href="projects/3D-Audio-Visualizer/index.html" class="project-link">
-            <div class="carousel-content">
-              <img class="carousel-image" src="public/thumbnail_audio_visualizer.png">
-              <div>
-                <h3>3D Audio Visualizer</h3>
-                <p>Using perlin noise to visualize audio frequency on an icosahedron.</p>
-              </div>
-            </div>
-            </a>
-          </div>
-          <div class="carousel-item">
-            <div class="carousel-content">
-              <div class="placeholder">More coming soon :)</div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-controls">
-          <button class="carousel-control prev" aria-label="Previous slide">&lt;</button>
-          <div class="carousel-indicators">
-            <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
-            <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
-          </div>
-          <button class="carousel-control next" aria-label="Next slide">&gt;</button>
-        </div>
-      </div>
-      
-      <div class="spinning-header-container bottom-header">
-        <h2 class="spinning-header">
-            Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects |
-    
-            Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects | Projects |
-        </h2>
-      </div>
-    </div>
-        
-    </section>
-    <script type="importmap">
-        {
-          "imports": {
-            "three": "https://cdn.jsdelivr.net/npm/three@v0.174.0/build/three.module.js",
-            "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.174.0/examples/jsm/"
-          }
-        }
-    </script>
-    <script type="module" src="projects.js"></script>
-  </body>
+</head>
+<body>
+    <header>
+        <h1>Three.js projects</h1>
+    </header>
+    <main id="projects-container"></main>
+    <footer>
+        <p><a href="index.html">Go back</a></p>
+    </footer>
+    <script src="projects.js"></script>
+</body>
 </html>

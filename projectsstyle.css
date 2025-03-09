@@ -1,245 +1,75 @@
-body{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100vh;
+body {
+    background-color: white;
+    color: black;
     font-family: "Funnel Sans", monospace;
-    cursor: url('https://img.icons8.com/?size=24&id=3149&format=png'), auto;
-    position: relative;
-    overflow-x: hidden;
-}
-.content-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    z-index: 1;
-    overflow: hidden;
-}
-.spinning-header-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    z-index: 2;
-    background-color: white;
-    flex-shrink: 0;
-}
-.spinning-header{
-    width: 200%;
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
     margin: 0;
     padding: 0;
-    font-size: 44px;
-    color: white;
-    background-color: black;
-    animation: slideLeft 10s infinite linear reverse;
-}
-@keyframes slideLeft {
-    0%{
-        transform: translateX(0%);
-    }
-    100%{
-        transform: translateX(-50%);
-    }
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.carousel-container {
-    width: 100%;
-    max-width: 800px; 
-    margin: 20px auto;
-    padding: 10px;
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 5px solid black;
+    border-top: 5px solid black;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.project-card {
+    background-color: #f8f8f8;
+    border: 5px solid black;
     box-sizing: border-box;
-    min-height: 200px;
-    max-height: 60vh;
+    transition: background-color 0.3s;
 }
 
-.carousel {
-    position: relative;
+.project-card:hover {
+    transform: scale(1.02);
+}
+
+.project-card img {
     width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-    overflow: hidden;
-    border: 5px solid black; 
-    box-sizing: border-box;
-    max-height: 450px;
-    max-width: 800px;
-    margin: 0 auto; 
+    height: auto;
+    display: block;
+    border-bottom: 5px solid black;
 }
 
-
-.carousel-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    background-color: white;
-}
-
-.carousel-item.active {
-    opacity: 1;
-}
-
-.carousel-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-
-    text-align: left;
-    background-color: black;
-}
-
-.carousel-content h3, p{
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    color: white;
-}
-
-.carousel-content h3{
-    font-size: 24px;
-    padding-top: 1vh;
-}
-
-.carousel-content p{
-    font-size: 20px;
-}
-
-.project-link {
-    text-decoration: none;
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 10;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-}
-
-.placeholder {
-    font-size: 44px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
+.project-description {
     padding: 10px;
 }
 
-.carousel-image{
-    max-width: 100%;
-}
-
-.carousel-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.carousel-control {
+.project-description h2 {
+    margin: 0 0 10px 0;
+    width: fit-content;
+    padding: 0 10px;
     background-color: black;
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
+    color: #FFF;
+}
+
+.project-description p {
+    margin: 0 0 10px 0;
+}
+
+.project-description a {
+    color: black;
+    text-decoration: none;
+    border-bottom: 2px solid black;
+}
+
+footer {
     text-align: center;
-    font-size: 30px;
-    font-weight: bolder;
-    cursor: pointer;
-    margin: 0 10px;
-}
-
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 0%;
-    background-color: white;
-    border: 5px solid black;
-    cursor: pointer;
-}
-
-.indicator.active {
-    background-color: black;
-}
-
-@media (min-width: 1200px) {
-    .carousel {
-        padding-bottom: 450px;
-        height: 450px;
-    }
-    .carousel-container {
-        padding: 20px;
-    }
-}
-
-/* Medium screen adjustments */
-@media (max-width: 768px) {
-    .spinning-header {
-        font-size: 32px;
-    }
-    .carousel-control {
-        width: 36px;
-        height: 36px;
-        font-size: 16px;
-        margin: 0 5px;
-    }
-    .placeholder {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .content-wrapper {
-        height: 100vh;
-    }
-    .spinning-header {
-        font-size: 24px;
-    }
-    .carousel-control {
-        width: 30px;
-        height: 30px;
-        font-size: 14px;
-        margin: 0 3px;
-    }
-    .carousel-indicators {
-        gap: 5px;
-    }
-    .indicator {
-        width: 10px;
-        height: 10px;
-    }
-    .placeholder {
-        font-size: 18px;
-    }
-    .carousel-container {
-        padding: 5px;
-    }
-}
-
-.top-header {
-    order: 1;
-}
-.bottom-header {
-    order: 3;
-}
-.carousel-container {
-    order: 2;
+    padding: 10px;
+    border-top: 5px solid black;
 }

@@ -1,59 +1,49 @@
-// Carousel functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const carousel = document.querySelector('.carousel');
-    const items = document.querySelectorAll('.carousel-item');
-    const indicators = document.querySelectorAll('.indicator');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    
-    let currentIndex = 0;
-    const totalItems = items.length;
-    
-    // Function to update the active slide
-    function updateCarousel(index) {
-      // Remove active class from all items and indicators
-      items.forEach(item => item.classList.remove('active'));
-      indicators.forEach(ind => ind.classList.remove('active'));
+const projects = [
+  {
+      title: "3D Audio Visualizer",
+      description: "Using perlin noise to visualize audio frequency on an icosahedron.",
+      image: "public/thumbnail_audio_visualizer.png",
+      link: "projects/3D-Audio-Visualizer/index.html"
+  },
+  {
+      title: "More coming soon",
+      description: "I had fun with my first project, so I'll keep making more :)",
+      image: "#",
+      link: "#"
+  }
+];
+
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("projects-container");
+  projects.forEach(project => {
+      const card = document.createElement("div");
+      card.className = "project-card";
       
-      // Add active class to current item and indicator
-      items[index].classList.add('active');
-      indicators[index].classList.add('active');
+      const img = document.createElement("img");
+      img.src = project.image;
+      img.alt = project.title;
       
-      currentIndex = index;
-    }
-    
-    // Next button click
-    nextBtn.addEventListener('click', function() {
-      let newIndex = currentIndex + 1;
-      if (newIndex >= totalItems) {
-        newIndex = 0;
-      }
-      updateCarousel(newIndex);
-    });
-    
-    // Previous button click
-    prevBtn.addEventListener('click', function() {
-      let newIndex = currentIndex - 1;
-      if (newIndex < 0) {
-        newIndex = totalItems - 1;
-      }
-      updateCarousel(newIndex);
-    });
-    
-    // Indicator clicks
-    indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', function() {
-        updateCarousel(index);
-      });
-    });
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'ArrowLeft') {
-        prevBtn.click();
-      } else if (e.key === 'ArrowRight') {
-        nextBtn.click();
-      }
-    });
+      const descriptionDiv = document.createElement("div");
+      descriptionDiv.className = "project-description";
+      
+      const h2 = document.createElement("h2");
+      h2.textContent = project.title;
+      
+      const p = document.createElement("p");
+      p.textContent = project.description;
+      
+      const a = document.createElement("a");
+      a.href = project.link;
+      a.target = "_blank";
+      a.textContent = "View Project";
+      
+      descriptionDiv.appendChild(h2);
+      descriptionDiv.appendChild(p);
+      descriptionDiv.appendChild(a);
+      
+      card.appendChild(img);
+      card.appendChild(descriptionDiv);
+      
+      container.appendChild(card);
   });
-  
+});
