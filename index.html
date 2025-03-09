@@ -4,29 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robin's 3D Adventures</title>
-    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="indexstyle.css" rel="stylesheet" type="text/css" media="all">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="header-div">
-        <canvas id="header-c"></canvas>
-        <div id="header-text">
-            <h1 id="header-h1" class="white-text black-background text-center text-title z-index-2">Hello, World!</h1>
-            <h2 id="header-h2" class="white-text black-background text-center text-subtitle z-index-2"><a href="projects.html" class="header-link">[Projects]</a></h2>
-            <h2 id="header-h3" class="white-text black-background text-center text-subtitle z-index-2"><a href="https://x.com/RobinsSecret" class="header-link">[X/Twitter]</a></h2>
-        </div>
+      <h1 id="h1" class="slide-in">Hello, world!</h1>
+      <h2 id="h2" class="slide-in"><a href="projects.html">[Projects]</a></h2>
+      <h2 id="h3" class="slide-in"><a href="https://x.com/RobinsSecret">[X/Twitter]</a></h2>
     </div>
-    <div id="main-content-div">
-        <div id="main-content-subtitle">
-            <h2 class="slide-left-infinite text-subtitle">
-                Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory |
-                
-                Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory | Welcome to my 3D laboratory |
-            </h2>
-        </div>
+    <div>
+      <h2 class="spinning-header">
+        Welcome to my 3D lab | Welcome to my 3D lab | Welcome to my 3D lab | Welcome to my 3D lab | Welcome to my 3D lab | Welcome to my 3D lab | Welcome to my 3D lab | Welcome to my 3D lab | Welcome to my 3D lab |
+
+        Welcome to my 3D lab | Welcome to my 3D lab | Welcome to my 3D lab | Welcome to my 3D lab | Welcome to my 3D lab | Welcome to my 3D lab | Welcome to my 3D lab | Welcome to my 3D lab | Welcome to my 3D lab |
+      </h2>
     </div>
+    <canvas id="c"></canvas>
+
+    <!--JS imports-->
     <script type="importmap">
         {
           "imports": {

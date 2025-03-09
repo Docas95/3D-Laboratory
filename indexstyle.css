@@ -1,0 +1,136 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Funnel Sans", monospace;
+    overflow: hidden;
+
+    cursor: url('https://img.icons8.com/?size=24&id=3149&format=png'), auto;
+}
+
+#c{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#header-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 2;
+}
+
+#header-div h1, h2, a{
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: fit-content;
+    margin-top: 1vh;
+}
+
+h1{
+    font-size: 64px;
+}
+
+h2{
+    font-size: 52px;
+}
+
+#header-div a{
+    text-decoration: none;
+}
+
+#header-div a:hover{
+    text-decoration: underline;
+}
+
+#header-div a:visited{
+    color: inherit;
+}
+
+.spinning-header{
+    z-index: 2;
+    width: 200%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+
+    margin: 0;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    font-size: 48px;
+
+    color: black;
+    background-color: white;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+
+    animation: slideLeft 10s infinite linear;
+}
+
+.slide-in{
+    transform: translateY(-100vh);
+    animation: slideIn 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+#h1.slide-in{
+    animation-delay: 0.4s;
+}
+#h2.slide-in{
+    animation-delay: 0.2s;
+}
+
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100vh);
+    }
+    60% {
+        transform: translateY(1vh);
+    }
+    75% {
+        transform: translateY(-0.5vh);
+    }
+    85% {
+        transform: translateY(0.3vh);
+    }
+    95% {
+        transform: translateY(-0.2vh);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slideLeft {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-50%);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    h1{
+        font-size: 48px;
+    }
+    
+    h2{
+        font-size: 40px;
+    }
+    .spinning-header{
+        font-size: 36px;
+    }
+}
