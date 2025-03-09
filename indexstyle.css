@@ -1,48 +1,60 @@
 body{
     margin: 0;
     padding: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
     font-family: "Funnel Sans", monospace;
     overflow: hidden;
-
     cursor: url('https://img.icons8.com/?size=24&id=3149&format=png'), auto;
+    position: relative;
 }
 
 #c{
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
 }
 
 #header-div{
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    justify-content: center;
+    padding-top: 20vh;
     z-index: 2;
 }
 
-#header-div h1, h2, a{
+#header-div h1, #header-div h2, #header-div a{
     background-color: black;
     color: white;
     text-align: center;
     width: fit-content;
     margin-top: 1vh;
+    padding: 0 10px;
 }
 
 h1{
     font-size: 64px;
+    margin-bottom: 1vh;
 }
 
 h2{
     font-size: 52px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 #header-div a{
@@ -57,24 +69,25 @@ h2{
     color: inherit;
 }
 
-.spinning-header{
+.spinning-header-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
     z-index: 2;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    background-color: white;
+}
+
+.spinning-header{
     width: 200%;
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
-
     margin: 0;
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    font-size: 48px;
-
+    padding: 5px 0;
+    font-size: 44px;
     color: black;
-    background-color: white;
-    border-top: 5px solid black;
-    border-bottom: 5px solid black;
-
     animation: slideLeft 10s infinite linear;
 }
 
@@ -123,14 +136,28 @@ h2{
 }
 
 @media screen and (max-width: 800px) {
+    #header-div {
+        padding-top: 15vh;
+    }
     h1{
         font-size: 48px;
     }
-    
     h2{
         font-size: 40px;
     }
     .spinning-header{
         font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #header-div {
+        padding-top: 10vh;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    #header-div {
+        padding-top: 5vh;
     }
 }
