@@ -1,96 +1,59 @@
-/**
- * Initialize everything when the page loads
- */
-document.addEventListener('DOMContentLoaded', () => {
-    projectsListingInit();
-    setupScrollAnimations();
+// Carousel functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.carousel');
+    const items = document.querySelectorAll('.carousel-item');
+    const indicators = document.querySelectorAll('.indicator');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
     
-    // Set up event listeners for project navigation
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
-    const dots = document.querySelectorAll('.dot');
+    let currentIndex = 0;
+    const totalItems = items.length;
     
-    prevButton.addEventListener('click', () => {
-        plusProject(-1);
+    // Function to update the active slide
+    function updateCarousel(index) {
+      // Remove active class from all items and indicators
+      items.forEach(item => item.classList.remove('active'));
+      indicators.forEach(ind => ind.classList.remove('active'));
+      
+      // Add active class to current item and indicator
+      items[index].classList.add('active');
+      indicators[index].classList.add('active');
+      
+      currentIndex = index;
+    }
+    
+    // Next button click
+    nextBtn.addEventListener('click', function() {
+      let newIndex = currentIndex + 1;
+      if (newIndex >= totalItems) {
+        newIndex = 0;
+      }
+      updateCarousel(newIndex);
     });
     
-    nextButton.addEventListener('click', () => {
-        plusProject(1);
+    // Previous button click
+    prevBtn.addEventListener('click', function() {
+      let newIndex = currentIndex - 1;
+      if (newIndex < 0) {
+        newIndex = totalItems - 1;
+      }
+      updateCarousel(newIndex);
     });
     
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            currentProject(index + 1);
-        });
+    // Indicator clicks
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', function() {
+        updateCarousel(index);
+      });
     });
-});
-
-
-/**
- * Current project index
- */
-let projectIndex;
-
-/**
- * Navigate to the next or previous project
- * @param {number} n - Direction and amount to navigate (-1 or 1)
- */
-function plusProject(n) {
-    showProjects(projectIndex += n);
-}
-
-/**
- * Navigate to a specific project
- * @param {number} n - Project index to display
- */
-function currentProject(n) {
-    showProjects(projectIndex = n);
-}
-
-/**
- * Initialize the projects listing functionality
- */
-function projectsListingInit() {
-    projectIndex = 1;
-    showProjects(projectIndex);
     
-    // Add hover effects for project cards
-    const projects = document.getElementsByClassName("project");
-    for(let i = 0; i < projects.length; i++) {
-        projects[i].addEventListener('mouseleave', function() {
-            this.style.boxShadow = 'none';
-        });
-    }
-}
-
-/**
- * Display the selected project and update navigation
- * @param {number} n - Index of the project to show
- */
-function showProjects(n) {
-    let i;
-    let projects = document.getElementsByClassName("project");
-    let dots = document.getElementsByClassName("dot");
-    
-    // Handle index boundaries
-    if(n > projects.length) {
-        projectIndex = 1;
-    }
-    if(n < 1) {
-        projectIndex = projects.length;
-    }
-    
-    // Hide all projects
-    for(i = 0; i < projects.length; i++) {
-        projects[i].style.display = "none";
-    }
-    
-    // Reset all navigation dots
-    for(i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    
-    // Show the selected project and activate its dot
-    projects[projectIndex-1].style.display = "block";
-    dots[projectIndex-1].className += " active";
-}
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      } else if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      }
+    });
+  });
+  
